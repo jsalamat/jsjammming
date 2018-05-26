@@ -92,7 +92,7 @@ class App extends Component {
         <div className="App">
           <SearchBar onSearch={this.search} />
           <div className="App-playlist">
-            <SearchResults SearchResults={this.state.searchResults} />
+            <SearchResults searchResults={this.state.searchResults} />
             <Playlist
               playlistName={this.state.playlistName}
               playlistTracks={this.state.playlistTracks}
