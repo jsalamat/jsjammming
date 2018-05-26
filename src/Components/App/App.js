@@ -12,15 +12,15 @@ class App extends Component {
     super(props);
     this.state= {
       searchResults: [
-        {name: 'Common', artist: 'Common', album: 'Be', id: 1},
-        {name: 'Nas', artist: 'Nas', album: 'Illmatic', id: 2},
-        {name: 'Drake', artist: 'Drake', album: 'Take Care', id: 3}
+        //{name: 'Common', artist: 'Common', album: 'Be', id: 1},
+        //{name: 'Nas', artist: 'Nas', album: 'Illmatic', id: 2},
+        //{name: 'Drake', artist: 'Drake', album: 'Take Care', id: 3}
       ],
       playlistName: 'New Playlist',
       playlistTracks: [
-        {name: 'Common', artist: 'Common', album: 'Be', id: 1},
-        {name: 'Nas', artist: 'Nas', album: 'Illmatic', id: 2},
-        {name: 'Drake', artist: 'Drake', album: 'Take Care', id: 3}
+        //{name: 'Common', artist: 'Common', album: 'Be', id: 1},
+        //{name: 'Nas', artist: 'Nas', album: 'Illmatic', id: 2},
+        //{name: 'Drake', artist: 'Drake', album: 'Take Care', id: 3}
       ]
     }
 
@@ -60,9 +60,17 @@ class App extends Component {
 
   savePlaylist() {
     //Generates an array of uri values called trackURIs from the playlistTracks property
-    const trackURIs = this.state.playlistTracks.map(track => track.uri);
+    const trackUris = this.state.playlistTracks.map(track => track.uri);
     //In a later step, you will pass the trackURIs array
     //and playlistName to a method that will save the user's playlist to their account.
+    //savePlaylist() method to call Spotify.savePlaylist()
+    Spotify.savePlaylist(this.state.playlistName, trackUris).then(() => {
+      //reset the state of playlistName to 'New Playlist' and playlistTracks to an empty array.
+      this.setState({
+        playlistName: 'New Playlist',
+        playlistTracks: []
+      })
+    })
   }
 
   search(term) {
