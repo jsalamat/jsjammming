@@ -1,12 +1,12 @@
 const redirectUri = "http://localhost:3000/";
-const clientID = ;
+const clientID;
 
-let usersAccessToken;
+let accessToken;
 
 const Spotify = {
   getAccessToken() {
-    if(usersAccessToken) {
-      return usersAccessToken;
+    if (accessToken) {
+      return accessToken;
     }
 
     //method to retrieve the access token and expiration time from the URL.
@@ -15,7 +15,7 @@ const Spotify = {
     //If the access token is not already set, check the URL to see if it has just been obtained
     if(accessTokenMatch && expirationTimeMatch) {
       //Set the access token value
-      let accessToken = accessTokenMatch[1];
+      accessToken = accessTokenMatch[1];
       //Set a variable for expiration time
       let expirationTimeToken = expirationTimeMatch[1];
       //Set the access token to expire at the value for expiration time
