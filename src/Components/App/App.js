@@ -32,7 +32,7 @@ class App extends Component {
   }
 
   addTrack(track) {
-    if (this.state.playlistTracks.some(savedTrack => savedTrack.id === track.id)) {
+  //  if (this.state.playlistTracks.some(savedTrack => savedTrack.id === track.id)) {
         // it isn't already in playlistTracks
         // you make a variable that equals playlistTracks,
         let tracks = this.state.playlistTracks;
@@ -40,7 +40,7 @@ class App extends Component {
         tracks.push(track);
         // then set the new state of playlistTracks to that;
         this.setState({playlistTracks: tracks});
-    }
+  //  }
   }
 
   removeTrack(track) {
